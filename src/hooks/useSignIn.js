@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 import { useAuthContext } from "./useAuthContext";
 
@@ -26,5 +29,10 @@ export const useSignIn = () => {
       });
   };
 
-  return { signin, error, isPending };
+  const forgotPassword = (email) => {
+    sendPasswordResetEmail(auth, email).then((res) => {
+      console.log(res);
+    });
+  };
+  return { forgotPassword, signin, error, isPending };
 };

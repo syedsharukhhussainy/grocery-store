@@ -1,26 +1,12 @@
 import React, { useState } from "react";
-import { BsGoogle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { LockClosedIcon } from "@heroicons/react/solid";
-import { useSignIn } from "../../hooks/useSignIn";
-import { useGoogleSignIn } from "../../hooks/useGoogleSignIn";
 import { useForgotPassword } from "../../hooks/useForgotPassword";
 
-const SignIn = () => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const { signin, isPending, error } = useSignIn();
-
-  const { googleSignIn, googleError, isGPending } = useGoogleSignIn();
 
   const { forgotPassword } = useForgotPassword();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    signin(email, password);
-  };
-
   return (
     <div className="min-h-full h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -31,18 +17,10 @@ const SignIn = () => {
             alt="Workflow"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign in to your account
+            Forgot Password
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">Or</p>
-          <div
-            className="flex w-4/5 mx-auto items-center justify-center border p-2 mt-2 hover:bg-slate-100 cursor-pointer"
-            onClick={googleSignIn}
-          >
-            <BsGoogle />
-            <p className="ml-2">Sign in with Google</p>
-          </div>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <div className="mt-8 space-y-6">
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
@@ -61,42 +39,11 @@ const SignIn = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
-              <input
-                id="password"
-                name="password"
-                value={password}
-                type="password"
-                autoComplete="current-password"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            {error && <div className="pt-1 text-red-600 text-sm">{error}</div>}
-            {googleError && (
-              <div className="pt-1 text-red-600 text-sm">{googleError}</div>
-            )}
-          </div>
-
-          <div className="flex items-center justify-end">
-            <div className="text-sm">
-              <Link
-                to="/forgot-password"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                Forgot your password?
-              </Link>
-            </div>
           </div>
 
           <div>
             <button
-              type="submit"
+              onClick={() => forgotPassword(email)}
               className="group relative w-full flex justify-center py-2 mt-2 px-4 border border-transparent text-md font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <span className="absolute left-0 inset-y-0 flex items-center pl-3">
@@ -105,19 +52,18 @@ const SignIn = () => {
                   aria-hidden="true"
                 />
               </span>
-              Sign in
+              Submit
             </button>
           </div>
           <div className="flex items-center justify-center">
-            <p>Don't have account?</p>
-            <Link to="/signup" className="text-indigo-500 ml-1">
-              Sign Up
+            <Link to="/signin" className="text-indigo-500 ml-1">
+              Back to Sign in page
             </Link>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
 };
 
-export default SignIn;
+export default ForgotPassword;
