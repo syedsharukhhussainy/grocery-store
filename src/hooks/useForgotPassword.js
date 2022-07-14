@@ -11,10 +11,10 @@ export const useForgotPassword = () => {
     setIsPending(true);
 
     sendPasswordResetEmail(auth, email, {
-      url: "https://localhost:3000/login",
+      url: "https://localhost:3000/signin",
     })
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        console.log("Sent");
       })
       .catch((err) => {
         console.log(err);
