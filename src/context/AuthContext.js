@@ -13,6 +13,8 @@ const authReducer = (state, action) => {
       return { ...state, user: action.payload };
     case "SIGN_IN":
       return { ...state, user: action.payload };
+    case "LOG_OUT":
+      return { ...state, user: null };
     case "GOOGLE_SIGN_IN":
       return { ...state, user: action.payload };
     case "IS_AUTH_READY":
