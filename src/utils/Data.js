@@ -27,15 +27,15 @@ export const heroData = [
   },
   {
     id: 4,
-    name: "Cherries",
+    name: "Pomegranate",
     decp: "Mixed Fish Kebab",
     price: "5.25",
     imageSrc: F6,
   },
   {
     id: 5,
-    name: "Pineapple",
-    decp: "Fresh Pineapple",
+    name: "Banana",
+    decp: "Fresh Banana",
     price: "5.25",
     imageSrc: F9,
   },
