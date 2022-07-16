@@ -23,9 +23,9 @@ const HomeContainer = () => {
           </div>
         </div>
 
-        <p className="text-[2.5rem] lg:text-[4.5rem] font-bold tracking-wide text-headingColor">
+        <p className="text-[2.5rem] lg:text-[4rem] font-bold tracking-wide text-headingColor">
           Fresh and Healthy Veggies{" "}
-          <span className="text-orange-600 text-[2.5rem] lg:text-[5rem]">
+          <span className="text-orange-600 text-[2.5rem] lg:text-[4rem]">
             Organic Market
           </span>
         </p>
@@ -49,7 +49,7 @@ const HomeContainer = () => {
           alt="hero-bg"
         />
 
-        <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center lg:px-36  py-4 gap-4 flex-wrap md:pt-10 ">
+        <div className="w-full h-full absolute top-0 left-0 flex    items-center justify-center lg:px-36  py-4 gap-4 flex-wrap md:pt-10 ">
           {heroData &&
             heroData.map((n) => (
               <div
@@ -61,7 +61,7 @@ const HomeContainer = () => {
                   className="w-20 lg:w-40 -mt-10 lg:-mt-20 "
                   alt="I1"
                 />
-                <p className="text-base lg:text-xl font-semibold text-textColor mt-2 lg:mt-4">
+                <p className="lg:text-xl text-sm font-semibold text-textColor mt-2 lg:mt-4">
                   {n.name}
                 </p>
 

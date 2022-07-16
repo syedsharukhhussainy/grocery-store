@@ -10,7 +10,7 @@ function App() {
   const { isAuthReady, user } = useAuthContext();
   return (
     <AnimatePresence exitBeforeEnter>
-      <div className="w-screen h-screen flex flex-col bg-primary">
+      <div className="w-screen flex flex-col bg-primary">
         {isAuthReady && (
           <Routes>
             <Route
