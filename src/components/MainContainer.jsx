@@ -4,6 +4,7 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { useCollection } from "../hooks/useCollection";
 import HomeContainer from "./HomeContainer";
 import RowContainer from "./RowContainer";
+import MenuContainer from "./MenuContainer";
 
 const MainContainer = () => {
   const { documents, error } = useCollection("foodItems");
@@ -14,11 +15,11 @@ const MainContainer = () => {
 
   const handleScroll = (behaviour) => {
     if (behaviour === "right") {
-      let scrollV = scrollValue - 30;
-      setScrollValue(scrollV);
+      let scrollV = scrollValue + 30;
+      setScrollValue((prevState) => prevState + scrollV);
     } else {
       let scrollV = scrollValue + 30;
-      setScrollValue(scrollV);
+      setScrollValue((prevState) => prevState - scrollV);
     }
   };
   return (
@@ -54,6 +55,8 @@ const MainContainer = () => {
           scrollValue={scrollValue}
         />
       </section>
+
+      <MenuContainer />
     </div>
   );
 };
